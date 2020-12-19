@@ -11,5 +11,5 @@
 1. poetry install
 2. cp .env.example .env
 3. yarn --cwd flask_webpack_turbolinks/ install
-4. poetry run python honcho start
+4. poetry run honcho start
 5. Visit http://localhost:5000
