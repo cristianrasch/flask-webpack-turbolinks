@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Page Title</title>
+
+  {% block css %}{% endblock %}
+  {#
+  <link href="{{ static_url_for('static', filename='dist/app.css') }}"
+        rel="stylesheet" data-turbolinks-track="reload"/>
+  #}
+
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon"/>
+
+  <script src="{{ static_url_for('static', filename='dist/app.js') }}"
+          data-turbolinks-track="reload" defer>
+  </script>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="{{ url_for('home') }}">HOME</a>
+      </li>
+      <li>
+        <a href="{{ url_for('page1') }}">PAGE #1</a>
+      </li>
+      <li>
+        <a href="{{ url_for('page2') }}">PAGE #2</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% block js %}{% endblock %}
+</body>
+</html>

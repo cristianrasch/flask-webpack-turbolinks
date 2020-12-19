@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ location }}</h1>
+
+<div id="app"></div>
+{% endblock content %}
+
+
+{% block css %}
+<link href="{{ static_url_for('static', filename='dist/index.css') }}"
+      rel="stylesheet" data-turbolinks-track="reload"/>
+{% endblock css %}
+
+{% block js %}
+<script src="{{ static_url_for('static', filename='dist/index.js') }}" defer>
+{% endblock js %}
