@@ -11,7 +11,7 @@ module.exports = (env = {}) => {
   const plugins = [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: isDevEnv ? '[name]-[fullhash].css' : '[name].css',
+      filename: isDevEnv ? '[name]-[contenthash].css' : '[name].css',
     }),
     new VueLoaderPlugin()
   ];
@@ -53,7 +53,7 @@ module.exports = (env = {}) => {
     },
     output: {
       path: path.resolve(STATIC_PATH, DIST_DIR),
-      filename: isDevEnv ? '[name]-[fullhash].js' : '[name].js',
+      filename: isDevEnv ? '[name]-[contenthash].js' : '[name].js',
     },
     plugins,
   };
