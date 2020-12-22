@@ -2,7 +2,7 @@ const path = require('path');
 
 const STATIC_PATH = path.resolve(__dirname, 'static'), DIST_DIR = 'dist';
 
-module.exports = env => {
+module.exports = (env = {}) => {
   const { CleanWebpackPlugin } = require('clean-webpack-plugin');
   const MiniCssExtractPlugin = require('mini-css-extract-plugin');
   const { VueLoaderPlugin } = require('vue-loader');
