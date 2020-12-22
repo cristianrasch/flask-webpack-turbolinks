@@ -1,6 +1,6 @@
 const path = require('path');
 
-const STATIC_PATH = path.join(__dirname, 'static'), DIST_DIR = 'dist';
+const STATIC_PATH = path.resolve(__dirname, 'static'), DIST_DIR = 'dist';
 
 module.exports = env => {
   const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -21,7 +21,7 @@ module.exports = env => {
 
     plugins.push(
       new WebpackManifestPlugin({
-        fileName: path.join(STATIC_PATH, 'cache_manifest.json'),
+        fileName: path.resolve(STATIC_PATH, 'cache_manifest.json'),
         basePath: `${DIST_DIR}/`,
         publicPath: `${DIST_DIR}/`,
       })
