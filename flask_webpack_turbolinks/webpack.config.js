@@ -7,7 +7,7 @@ module.exports = env => {
   const MiniCssExtractPlugin = require('mini-css-extract-plugin');
   const { VueLoaderPlugin } = require('vue-loader');
 
-  const isDevEnv = env.NODE_ENV === 'development';
+  const isDevEnv = env.NODE_ENV === 'development' || process.env.WEBPACK_DEV_SERVER;
   const plugins = [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -15,7 +15,6 @@ module.exports = env => {
     }),
     new VueLoaderPlugin()
   ];
-  // const plugins = [new VueLoaderPlugin()];
 
   if (isDevEnv) {
     const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
@@ -37,6 +36,9 @@ module.exports = env => {
       index: './index.js',
     },
     devtool: isDevEnv ? 'inline-source-map' : 'source-map',
+    devServer: {
+      writeToDisk: true, // Write files to disk in dev mode, so Django can serve the assets
+    },
     module: {
       rules: [
         {
