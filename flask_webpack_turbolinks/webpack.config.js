@@ -35,7 +35,14 @@ module.exports = (env = {}) => {
       app: './app.js',
       index: './index.js',
     },
-    devtool: isDevEnv ? 'inline-source-map' : 'source-map',
+    devtool: isDevEnv ? 'eval-cheap-module-source-map' : 'source-map',
+    resolve: {
+      modules: [path.resolve(__dirname, 'node_modules')],
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        'vue': '@vue/runtime-dom'
+      }
+    },
     devServer: {
       writeToDisk: true, // Write files to disk in dev mode, so Django can serve the assets
     },
